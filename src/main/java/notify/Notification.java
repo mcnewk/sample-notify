@@ -1,9 +1,13 @@
 package notify;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import utils.DateTimeDeserializer;
+import utils.DateTimeSerializer;
 
 import java.util.List;
 
@@ -18,7 +22,11 @@ public class Notification {
     @JsonProperty(value = "ccs")
     private List<String> carbonCopies;
     private String from;
+    @JsonSerialize(using = DateTimeSerializer.class)
+    @JsonDeserialize(using = DateTimeDeserializer.class)
     private DateTime created;
+    @JsonSerialize(using = DateTimeSerializer.class)
+    @JsonDeserialize(using = DateTimeDeserializer.class)
     private DateTime delivered;
 
     public String getId() {
