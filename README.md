@@ -1,4 +1,4 @@
-kd2014-hacknight-notify
+simple-notification-test
 =======================
 
-notification service for kd2014 hack night
+simple notification test
